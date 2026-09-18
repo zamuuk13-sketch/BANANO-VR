@@ -8,7 +8,7 @@ This document is the master checklist for the project.
 - [x] 0.3 Create module architecture
 - [x] 0.4 Application initialization
 - [x] 0.5 Logging system
-- [ ] 0.6 Error handling
+- [x] 0.6 Error handling
 - [ ] 0.7 Browser capability detection
 - [ ] 0.8 Version system
 - [ ] 0.9 Initial interface
