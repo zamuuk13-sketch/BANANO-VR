@@ -1,6 +1,6 @@
 /**
  * BANANO VR
- * Chapter 0.3 — Module architecture
+ * Chapter 0.4 — Application initialization
  */
 
 import { createApp } from "./core/app.js";
@@ -12,10 +12,19 @@ const BANANO_VR = {
 };
 
 function bootstrap() {
+  if (BANANO_VR.initialized) {
+    return;
+  }
+
   BANANO_VR.app = createApp();
-  BANANO_VR.app.start();
-  BANANO_VR.initialized = true;
+  BANANO_VR.app.initialize();
+  BANANO_VR.initialized = BANANO_VR.app.initialized;
+
   document.documentElement.dataset.bananoReady = "true";
 }
 
-document.addEventListener("DOMContentLoaded", bootstrap);
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", bootstrap, { once: true });
+} else {
+  bootstrap();
+}
