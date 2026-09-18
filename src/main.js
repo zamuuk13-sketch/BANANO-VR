@@ -1,6 +1,6 @@
 /**
  * BANANO VR
- * Chapter 0.5 — Logging system
+ * Chapter 0.6 — Error handling
  */
 
 import { createApp } from "./core/app.js";
@@ -20,12 +20,28 @@ function bootstrap() {
 
   logger.info("Bootstrap started.");
 
-  BANANO_VR.app = createApp();
-  BANANO_VR.app.initialize();
-  BANANO_VR.initialized = BANANO_VR.app.initialized;
+  try {
+    BANANO_VR.app = createApp();
+    const initialized = BANANO_VR.app.initialize();
 
-  document.documentElement.dataset.bananoReady = "true";
-  logger.info("Bootstrap completed.");
+    BANANO_VR.initialized = initialized;
+
+    if (!initialized) {
+      document.documentElement.dataset.bananoReady = "false";
+      document.documentElement.dataset.bananoError = "startup";
+      logger.error("Bootstrap stopped because application initialization failed.");
+      return;
+    }
+
+    document.documentElement.dataset.bananoReady = "true";
+    document.documentElement.dataset.bananoError = "false";
+    logger.info("Bootstrap completed.");
+  } catch (error) {
+    BANANO_VR.initialized = false;
+    document.documentElement.dataset.bananoReady = "false";
+    document.documentElement.dataset.bananoError = "startup";
+    logger.error("Unhandled bootstrap error.", error);
+  }
 }
 
 if (document.readyState === "loading") {
