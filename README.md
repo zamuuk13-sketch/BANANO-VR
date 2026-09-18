@@ -37,7 +37,7 @@ Full-body tracking is not part of the initial scope.
 - [ ] 0.1 Project structure
 - [ ] 0.2 HTML/CSS/JavaScript setup
 - [x] 0.3 Modular architecture
-- [ ] 0.4 Application initialization
+- [x] 0.4 Application initialization
 - [ ] 0.5 Logging system
 - [ ] 0.6 Error handling
 - [ ] 0.7 Browser capability detection
@@ -183,7 +183,7 @@ The goal is not to require a high-end PC just to open the experience. Performanc
 
 ## 🚧 Current state
 
-The repository is currently implementing **Chapter 0 — Foundation**. Stages **0.1 — Project structure**, **0.2 — HTML/CSS/JavaScript setup** and **0.3 — Modular architecture** are complete.
+The repository is currently implementing **Chapter 0 — Foundation**. Stages **0.1 — Project structure**, **0.2 — HTML/CSS/JavaScript setup**, **0.3 — Modular architecture** and **0.4 — Application initialization** are complete.
 
 No tracking system is considered complete until it has been implemented, tested and documented.
 
