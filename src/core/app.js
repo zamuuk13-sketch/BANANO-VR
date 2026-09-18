@@ -1,9 +1,9 @@
 /**
  * BANANO VR
- * Chapter 0.3 — Module architecture
+ * Chapter 0.4 — Application initialization
  *
- * Application composition root.
- * Future systems are connected here without coupling main.js to every module.
+ * Application lifecycle and module initialization live here.
+ * Feature-specific services are intentionally implemented in later stages.
  */
 
 import { createCoreModule } from "./index.js";
@@ -23,13 +23,26 @@ export function createApp() {
     createUIModule()
   ];
 
+  let initialized = false;
+
   return {
     modules,
 
-    start() {
-      for (const module of this.modules) {
+    get initialized() {
+      return initialized;
+    },
+
+    initialize() {
+      if (initialized) {
+        return false;
+      }
+
+      for (const module of modules) {
         module.initialize();
       }
+
+      initialized = true;
+      return true;
     }
   };
 }
