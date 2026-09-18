@@ -4,7 +4,7 @@ This document is the master checklist for the project.
 
 ## Chapter 0 — Foundation
 - [x] 0.1 Create project structure
-- [ ] 0.2 Configure HTML/CSS/JavaScript
+- [x] 0.2 Configure HTML/CSS/JavaScript
 - [ ] 0.3 Create module architecture
 - [ ] 0.4 Application initialization
 - [ ] 0.5 Logging system
