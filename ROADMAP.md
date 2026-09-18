@@ -7,7 +7,7 @@ This document is the master checklist for the project.
 - [x] 0.2 Configure HTML/CSS/JavaScript
 - [x] 0.3 Create module architecture
 - [x] 0.4 Application initialization
-- [ ] 0.5 Logging system
+- [x] 0.5 Logging system
 - [ ] 0.6 Error handling
 - [ ] 0.7 Browser capability detection
 - [ ] 0.8 Version system
