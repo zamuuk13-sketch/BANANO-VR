@@ -1,6 +1,6 @@
 /**
  * BANANO VR
- * Chapter 0.5 — Logging system
+ * Chapter 0.6 — Error handling
  */
 
 import { createCoreModule } from "./index.js";
@@ -9,6 +9,7 @@ import { createVRModule } from "../vr/index.js";
 import { createTrackingModule } from "../tracking/index.js";
 import { createInteractionModule } from "../interaction/index.js";
 import { createUIModule } from "../ui/index.js";
+import { handleError } from "./errors.js";
 import { logger } from "./logger.js";
 
 export function createApp() {
@@ -38,15 +39,21 @@ export function createApp() {
 
       logger.info("BANANO VR application initialization started.");
 
-      for (const module of modules) {
-        logger.debug(`Initializing module: ${module.name}`);
-        module.initialize();
+      try {
+        for (const module of modules) {
+          logger.debug("Initializing module: " + module.name);
+          module.initialize();
+        }
+
+        initialized = true;
+        logger.info("BANANO VR application initialized successfully.");
+
+        return true;
+      } catch (error) {
+        handleError(error, "Application initialization");
+        initialized = false;
+        return false;
       }
-
-      initialized = true;
-      logger.info("BANANO VR application initialized successfully.");
-
-      return true;
     }
   };
 }
