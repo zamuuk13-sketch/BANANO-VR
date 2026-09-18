@@ -1,14 +1,16 @@
 /**
  * BANANO VR
- * Core module boundary.
- *
- * This stage defines the architecture only.
- * Core services will be implemented in their dedicated roadmap stages.
+ * Core module.
  */
+
+import { logger } from "./logger.js";
 
 export function createCoreModule() {
   return {
     name: "core",
-    initialize() {}
+
+    initialize() {
+      logger.info("Core module initialized.");
+    }
   };
 }
