@@ -183,7 +183,7 @@ The goal is not to require a high-end PC just to open the experience. Performanc
 
 ## 🚧 Current state
 
-The repository is currently being prepared for **Chapter 0 — Foundation**.
+The repository is currently implementing **Chapter 0 — Foundation**. Stage **0.1 — Project structure** is complete.
 
 No tracking system is considered complete until it has been implemented, tested and documented.
 
