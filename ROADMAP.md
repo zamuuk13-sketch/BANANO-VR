@@ -9,7 +9,7 @@ This document is the master checklist for the project.
 - [x] 0.4 Application initialization
 - [x] 0.5 Logging system
 - [x] 0.6 Error handling
-- [ ] 0.7 Browser capability detection
+- [x] 0.7 Browser capability detection
 - [ ] 0.8 Version system
 - [ ] 0.9 Initial interface
 - [ ] 0.10 Foundation test
